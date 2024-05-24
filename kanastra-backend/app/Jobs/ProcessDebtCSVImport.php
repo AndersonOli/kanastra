@@ -44,7 +44,7 @@ class ProcessDebtCSVImport implements ShouldQueue
 
                     dispatch(new ProcessDebtImport($debtDTO))->onQueue('save');
                 } catch (ValidationException $e) {
-                    Log::emergency($e->getMessage());
+                    Log::error($e->getMessage());
                 }
             }
         } catch (Exception $e) {
